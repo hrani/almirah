@@ -190,7 +190,7 @@ as a tag retrieval rule:
 
 .. code-block:: yaml
 
-		tags_rules:
+		tag_rules:
 		  - name: day
 		    pattern: "(?i)day([0-9]+)_"
 		    length: 2
@@ -206,7 +206,7 @@ it with *G*. Putting these together as a rule:
 
 .. code-block:: yaml
 
-		tags_rules:
+		tag_rules:
 		  - name: mice
 		    pattern: "_G?([0-9]+)_"
 		    prepend: G
@@ -217,7 +217,7 @@ similarly, let ``extension`` be *.npy*.
 
 .. code-block:: yaml
 
-		tags_rules:
+		tag_rules:
 		  - name: imaging
 		    value: calcium
 		  - name: extension
@@ -229,13 +229,13 @@ Putting these together, we get our organization rules config:
 
 		source: "/path/to/unorganized/data"
 		destination: "/path/to/store/organized/data"
-		pattern: "*.npy"
+		pattern: ".*.npy"
 		tags_rules:
 		  - name: day
 		    pattern: "(?i)day([0-9]+)_"
 		    length: 2
 		    iffy_prefix: 0
-		    default: 1
+		    default: 01
 		  - name: mice
 		    pattern: "_G?([0-9]+)_"
 		    prepend: G
